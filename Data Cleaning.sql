@@ -46,7 +46,7 @@ WHERE row_num > 1;
 -- 1. Delete duplicates
 
 CREATE TABLE `layoff_staging2` (  		-- Create new table cuz DELETE can't use with CTE
-  `company` text,						-- Add column name 'row_num'
+  `company` text,				-- Add column name 'row_num'
   `location` text,
   `industry` text,
   `total_laid_off` text,
