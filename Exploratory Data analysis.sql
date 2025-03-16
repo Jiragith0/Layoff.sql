@@ -64,7 +64,7 @@ SELECT
 	`month`,
     total_off,
 	SUM(total_off) OVER(ORDER BY `month`) AS rolling_total -- No partition cuz 
-FROM Rolling_Total;  									   -- the data has already been grouped in the CTE
+FROM Rolling_Total;  					       -- the data has already been grouped in the CTE
 
 -- maximum layoff ranking
 
@@ -93,8 +93,8 @@ SELECT
 	*, 
     DENSE_RANK() OVER(PARTITION BY `year` ORDER BY total_off DESC) AS ranking
 FROM company_year
-ORDER BY ranking  -- Can't use WHERE <= 5 cuz WHERE runs before SELECT 
-)				  -- There is no column named 'ranking', So there is no data to use with WHERE <= 5
+ORDER BY ranking  	-- Can't use WHERE <= 5 cuz WHERE runs before SELECT 
+)			-- There is no column named 'ranking', So there is no data to use with WHERE <= 5
 
 SELECT *
 FROM company_year_rank
